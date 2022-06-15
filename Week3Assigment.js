@@ -23,7 +23,7 @@ let names = ['Sam', 'Tommy', 'Tim', 'Sally', 'Buck', 'Bob'];
 // Use a loop to iterate through the array and calculate the average number of letters per name. Print the result to the console.
 let totalNames = 0;
 for (let i = 0; i < names.length; i++){
-    totalNames = totalNames + names[i].length;
+    totalNames += names[i].length;
 }
 let averageNameLength = totalNames / names.length;
 console.log(averageNameLength);
@@ -53,7 +53,7 @@ console.log(nameLengths);
 // Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array. Print the result to the console.
 let lengthsTotal = 0;
 for (let i = 0; i < nameLengths.length; i++){
-    lengthsTotal = lengthsTotal + nameLengths[i];
+    lengthsTotal += nameLengths[i];
 }
 console.log(lengthsTotal);
 
@@ -61,7 +61,7 @@ console.log(lengthsTotal);
 function wordRepeater(word, n) {
     let total = ''
     for (let i = 0; i < n; i++){
-        total = word + total;
+        total += word;
     } return total;
 };
 console.log(wordRepeater('hello', 6));
@@ -89,7 +89,7 @@ function averageChecker(x){
     let total = 0;
    
     for(let i = 0; i < x.length; i++){
-        total = total + x[i];
+        total += x[i];
     } return total / x.length
 }
 
@@ -98,11 +98,11 @@ function sizeComparer(array1, array2){
     let total1 = 0;
     let total2 = 0;
     for(let i = 0; i < array1.length; i++){
-        total1 = total1 + array1[i];
-    }  total1 = total1 / array1.length;
+        total1 += array1[i];
+    }  total1 /= array1.length;
     for(let i = 0; i < array2.length; i++){
-        total2 = total2 + array2[i];
-    }  total2 = total2 / array2.length;
+        total2 += array2[i];
+    }  total2 /= array2.length;
     if (total1 > total2){
         return true;
     }
@@ -138,12 +138,17 @@ function willBuyDrink(isHotOutside, moneyInPocket){
 console.log(willBuyDrink(true, 45.20))
  
 // Dice that will allow you to choose how many sides of dice and also how many dice to roll
+
 function dice(size, amount){
     let result 
     let roll = []
     for (let i = 0; i < amount; i++){
     result = Math.floor(Math.random() * size) + 1
     roll.push(result)
-} return roll
+
+} return roll.toString()
 }
-console.log(dice(20, 5))
+
+// Can i put a function in a function to make it runn 4 sepearte times
+ 
+console.log(dice(20,4))
