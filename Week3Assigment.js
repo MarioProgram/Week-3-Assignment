@@ -3,11 +3,11 @@
 let ages = [3, 9, 23, 64, 2, 8, 28, 93];
 // Programmatically subtract the value of the first element in the array from the value in the last element of the array (do not use numbers to reference the last element, find it programmatically, ages[7] – ages[0] is not allowed). Print the result to the console.
 
-console.log(ages[ages.length - 1] - ages.find(Number));
+console.log('subtracting first value from last value:', ages[ages.length - 1] - ages.find(Number));
 
 // Add a new age to your array and repeat the step above to ensure it is dynamic (works for arrays of different lengths).
 ages.push(65);
-console.log(ages[ages.length - 1] - ages.find(Number));
+console.log('adding a new age to array and repeated test above:', ages[ages.length - 1] - ages.find(Number));
 
 // Use a loop to iterate through the array and calculate the average age. Print the result to the console.
 let totalAge = 0;
@@ -15,7 +15,7 @@ for(let i = 0; i < ages.length; i++){
     totalAge = totalAge + ages[i];
 } 
 let averageAge = totalAge / ages.length;
-console.log(averageAge);
+console.log('loop to calculate the average age:', averageAge);
 
 // Create an array called names that contains the following values: ‘Sam’, ‘Tommy’, ‘Tim’, ‘Sally’, ‘Buck’, ‘Bob’.
 let names = ['Sam', 'Tommy', 'Tim', 'Sally', 'Buck', 'Bob'];
@@ -26,36 +26,36 @@ for (let i = 0; i < names.length; i++){
     totalNames += names[i].length;
 }
 let averageNameLength = totalNames / names.length;
-console.log(averageNameLength);
+console.log('average name length loop:', averageNameLength);
 
  // Use a loop to iterate through the array again and concatenate all the names together, separated by spaces, and print the result to the console.
 let namesTogether = ''
  for (let i = 0; i < names.length; i++){
     namesTogether = namesTogether + names[i] + ' ';
  } 
- console.log(namesTogether);
+ console.log('names together loop:', namesTogether);
 
  // How do you access the last element of any array?
  // use arrayName[arrayName.length - 1] example
- console.log(names[names.length - 1])
+ console.log('Accessing the last element of an array:', names[names.length - 1])
 
  // How do you access the first element of any array?
 // use arrayName.find(Element) example
-console.log(names.find(String))
+console.log('Accessing te first element of an array:', names.find(String));
 
  // Create a new array called nameLengths. Write a loop to iterate over the previously created names array and add the length of each name to the nameLengths array.
 let nameLengths = []
 for (let i = 0; i < names.length; i++){
   nameLengths.push(names[i].length);
 }
-console.log(nameLengths);
+console.log('Length on name array loop:', nameLengths);
 
 // Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array. Print the result to the console.
 let lengthsTotal = 0;
 for (let i = 0; i < nameLengths.length; i++){
     lengthsTotal += nameLengths[i];
 }
-console.log(lengthsTotal);
+console.log('names length total loop', lengthsTotal);
 
 //  Write a function that takes two parameters, word and n, as arguments and returns the word concatenated to itself n number of times (i.e. if I pass in ‘Hello’ and 3, I would expect the function to return ‘HelloHelloHello’).
 function wordRepeater(word, n) {
@@ -64,13 +64,14 @@ function wordRepeater(word, n) {
         total += word;
     } return total;
 };
-console.log(wordRepeater('hello', 6));
+console.log('Word repeater:', wordRepeater('Hello', 6));
+console.log('Word repeater with spaces just in case thats what you were looking for:', wordRepeater('hello ', 6));
 
 // Write a function that takes two parameters, firstName and lastName, and returns a full name (the full name should be the first and the last name separated by a space).
 function fullname(firstName, lastName){
     return `${firstName} ${lastName}`
 }
-console.log(fullname('Mario', 'Payan'))
+console.log('fullname function:', fullname('Mario', 'Payan'))
 
 // Write a function that takes an array of numbers and returns true if the sum of all the numbers in the array is greater than 100.
 function sizeChecker(x){
@@ -110,7 +111,7 @@ function sizeComparer(array1, array2){
 }
 let testArray1 = [4, 4, 32, 5, 2]
 let testArray2 = [323, 4234, 423, 345 ]
-console.log(sizeComparer(testArray2, testArray1))
+console.log('size comparer function:', sizeComparer(testArray2, testArray1))
 
 // Also this will work
 
@@ -125,7 +126,7 @@ function sizeComparer2(array1, array2){
     return false;
 } 
 
-console.log(sizeComparer2(testArray1, testArray2))
+console.log('size comparer2 function:', sizeComparer2(testArray1, testArray2))
 
 // Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
 function willBuyDrink(isHotOutside, moneyInPocket){
@@ -138,17 +139,24 @@ function willBuyDrink(isHotOutside, moneyInPocket){
 console.log(willBuyDrink(true, 45.20))
  
 // Dice that will allow you to choose how many sides of dice and also how many dice to roll
-
-function dice(size, amount){
-    let result 
-    let roll = []
+ let roll = []
+ let rollAmounts
+ function dice(size, amount){
+    let result
+    rollAmounts = amount
     for (let i = 0; i < amount; i++){
     result = Math.floor(Math.random() * size) + 1
     roll.push(result)
-
-} return roll.toString()
+    console.log(`dice roll ${i + 1}:`,  roll[i])
+}
+}
+// Damage modifier for rolls
+function damageModifier(multiplier){
+    for (let i = 0; i < rollAmounts; i++){
+        roll[i] *= multiplier;
+        console.log(`Multiplier amount ${i + 1}:`, roll[i])
+    }
 }
 
-// Can i put a function in a function to make it runn 4 sepearte times
- 
-console.log(dice(20,4))
+dice(20,7)
+damageModifier(1.5)
